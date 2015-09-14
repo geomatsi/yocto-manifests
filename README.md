@@ -63,6 +63,7 @@ $ source oe-init-build-env /home/builder/project/build
     /home/builder/project/source/poky/meta-yocto \
 -   /home/builder/project/source/poky/meta-yocto-bsp \
 +   /home/builder/project/source/meta-openembedded/meta-oe \
++   /home/builder/project/source/meta-beagle \
 +   /home/builder/project/source/meta-iot-simple \
 "
 BBLAYERS_NON_REMOVABLE ?= " \
