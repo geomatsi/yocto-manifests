@@ -37,7 +37,7 @@ BBLAYERS ?= " \
 1. Replace default machine definition in local.conf:
 
 ```
-MACHINE = "pcduino".
+MACHINE = "pcduino"
 ```
 
 2. Add preferred nodejs provider to local.conf:
@@ -92,7 +92,7 @@ BBLAYERS ?= " \
 1. Replace default machine definition in local.conf:
 
 ```
-MACHINE = "pcduino-lite-wifi".
+MACHINE = "pcduino-lite-wifi"
 ```
 
 2. Add preferred nodejs provider to local.conf:
@@ -140,9 +140,13 @@ BBLAYERS_NON_REMOVABLE ?= " \
     /home/builder/project/source/poky/meta \
 ```
 
-## Edit machine in build environment
+## Edit build settings
 
-Replace default machine definition in local.conf with MACHINE = "beaglebone"
+1. Replace default machine definition in local.conf:
+
+```
+MACHINE = "beaglebone"
+```
 
 ## Building the image
 
