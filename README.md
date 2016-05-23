@@ -6,7 +6,7 @@ Manifest for pcDuino IoT Yocto distro based on upstream kernel and u-boot
 $ mkdir -p /home/builder/project/source  
 $ mkdir -p /home/builder/project/build  
 $ cd /home/builder/project/source  
-$ repo init -u git@github.com:geomatsi/iot-manifest.git -b pcduino-upstream -m sunxi-krogoth.xml  
+$ repo init -u git@github.com:geomatsi/iot-manifest.git -b master -m sunxi-krogoth.xml  
 $ repo sync -c  
 
 ## Prepare yocto build environment
@@ -63,7 +63,7 @@ Manifest for pcDuino IoT Yocto distro based on legacy linux-sunxi-v3.4 kernel an
 $ mkdir -p /home/builder/project/source  
 $ mkdir -p /home/builder/project/build  
 $ cd /home/builder/project/source  
-$ repo init -u git@github.com:geomatsi/iot-manifest.git -b pcduino-sunxi -m sunxi-legacy-fido.xml  
+$ repo init -u git@github.com:geomatsi/iot-manifest.git -b master -m sunxi-legacy-fido.xml  
 $ repo sync -c  
 
 ## Prepare yocto build environment
@@ -111,7 +111,7 @@ Manifest for BeagleBone IoT Yocto distro
 $ mkdir -p /home/builder/project/source  
 $ mkdir -p /home/builder/project/build  
 $ cd /home/builder/project/source  
-$ repo init -u git@github.com:geomatsi/iot-manifest.git -b beaglebone -m beagle-fido.xml  
+$ repo init -u git@github.com:geomatsi/iot-manifest.git -b master -m beagle-fido.xml  
 $ repo sync -c  
 
 ## Prepare yocto build environment
