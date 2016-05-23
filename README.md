@@ -1,4 +1,4 @@
-# pcDuino upstream
+# pcDuino upstream (Krogoth)
 Manifest for pcDuino IoT Yocto distro based on upstream kernel and u-boot
 
 ## Fetch yocto layers
@@ -6,7 +6,8 @@ Manifest for pcDuino IoT Yocto distro based on upstream kernel and u-boot
 $ mkdir -p /home/builder/project/source  
 $ mkdir -p /home/builder/project/build  
 $ cd /home/builder/project/source  
-$ repo init -u git@github.com:geomatsi/iot-manifest.git -b pcduino-upstream  
+$ repo init -u git@github.com:geomatsi/iot-manifest.git -b pcduino-upstream -m sunxi-krogoth.xml  
+$ repo sync -c  
 
 ## Prepare yocto build environment
 
@@ -47,21 +48,23 @@ PREFERRED_PROVIDER_node = "nodejs"
 PREFERRED_PROVIDER_node-native = "nodejs-native"
 ```
 
-## Building the image
+## Building images
 
+$ bitbake core-image-minimal  
+$ bitbake core-image-base  
 $ bitbake iot-image-base  
-or  
 $ bitbake iot-image-web  
 
-# pcDuino sunxi
-Manifest for pcDuino IoT Yocto distro based on legacy linux-sunxi kernel and u-boot
+# pcDuino legacy (Fido)
+Manifest for pcDuino IoT Yocto distro based on legacy linux-sunxi-v3.4 kernel and u-boot
 
 ## Fetch yocto layers
 
 $ mkdir -p /home/builder/project/source  
 $ mkdir -p /home/builder/project/build  
 $ cd /home/builder/project/source  
-$ repo init -u git@github.com:geomatsi/iot-manifest.git -b pcduino-sunxi  
+$ repo init -u git@github.com:geomatsi/iot-manifest.git -b pcduino-sunxi -m sunxi-legacy-fido.xml  
+$ repo sync -c  
 
 ## Prepare yocto build environment
 
@@ -96,9 +99,11 @@ MACHINE = "pcduino-lite-wifi"
 
 ## Building the image
 
+$ bitbake core-image-minimal  
+$ bitbake core-image-base  
 $ bitbake iot-image-base  
 
-# BeagleBone
+# BeagleBone (Fido)
 Manifest for BeagleBone IoT Yocto distro
 
 ## Fetch yocto layers
@@ -106,7 +111,8 @@ Manifest for BeagleBone IoT Yocto distro
 $ mkdir -p /home/builder/project/source  
 $ mkdir -p /home/builder/project/build  
 $ cd /home/builder/project/source  
-$ repo init -u git@github.com:geomatsi/iot-manifest.git -b beaglebone  
+$ repo init -u git@github.com:geomatsi/iot-manifest.git -b beaglebone -m beagle-fido.xml  
+$ repo sync -c  
 
 ## Prepare yocto build environment
 
@@ -141,3 +147,4 @@ MACHINE = "beaglebone"
 ## Building the image
 
 $ bitbake core-image-base  
+$ bitbake iot-image-base  
