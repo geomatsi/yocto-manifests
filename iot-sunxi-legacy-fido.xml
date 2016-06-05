@@ -10,6 +10,7 @@
 
   <project path="poky" name="poky" remote="yocto" revision="fido"/>
   <project path="meta-sunxi" name="meta-sunxi" remote="geomatsi" revision="sunxi-legacy-stable"/>
+  <project path="meta-iot-simple" name="meta-iot-simple" remote="geomatsi" revision="sunxi-legacy-stable"/>
   <project path="meta-openembedded" name="meta-openembedded" remote="openembedded" revision="fido"/>
 
 </manifest>
