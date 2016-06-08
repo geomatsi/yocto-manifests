@@ -7,8 +7,6 @@
 
   <project path="poky" name="poky" remote="yocto" revision="krogoth"/>
   <project path="meta-openembedded" name="meta-openembedded" remote="openembedded" revision="krogoth"/>
-
-  <!-- TODO: meta-sunxi krogoth branch is not yet released -->
-  <project path="meta-sunxi" name="meta-sunxi" remote="sunxi" revision="master"/>
+  <project path="meta-sunxi" name="meta-sunxi" remote="sunxi" revision="krogoth"/>
 
 </manifest>
