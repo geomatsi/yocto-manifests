@@ -12,6 +12,7 @@
   <project path="poky" name="poky" remote="yocto" revision="krogoth"/>
   <project path="meta-openembedded" name="meta-openembedded" remote="openembedded" revision="krogoth"/>
   <project path="meta-nodejs" name="meta-nodejs" remote="nodejs" revision="krogoth"/>
+  <project path="meta-nodejs-contrib" name="meta-nodejs-contrib" remote="nodejs" revision="krogoth"/>
   <project path="meta-sunxi" name="meta-sunxi" remote="sunxi" revision="krogoth"/>
 
 <project path="meta-iot-simple" name="meta-iot-simple" remote="geomatsi" revision="master"/>
