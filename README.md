@@ -184,6 +184,7 @@ BBLAYERS ?= " \
  /home/builder/project/source/meta-openembedded/meta-python \
  /home/builder/project/source/meta-openembedded/meta-networking \
  /home/builder/project/source/meta-nodejs \
+ /home/builder/project/source/meta-nodejs-contrib \
  /home/builder/project/source/meta-sunxi \
  /home/builder/project/source/meta-iot-simple \
  "
@@ -197,13 +198,6 @@ BBLAYERS ?= " \
 
 ```
 MACHINE = "pcduino"
-```
-
-2. Add preferred nodejs provider to local.conf:
-
-```
-PREFERRED_PROVIDER_node = "nodejs"
-PREFERRED_PROVIDER_node-native = "nodejs-native"
 ```
 
 ## Building images
