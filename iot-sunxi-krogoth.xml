@@ -15,6 +15,6 @@
   <project path="meta-nodejs-contrib" name="meta-nodejs-contrib" remote="nodejs" revision="krogoth"/>
   <project path="meta-sunxi" name="meta-sunxi" remote="sunxi" revision="krogoth"/>
 
-<project path="meta-iot-simple" name="meta-iot-simple" remote="geomatsi" revision="master"/>
+<project path="meta-iot-simple" name="meta-iot-simple" remote="geomatsi" revision="krogoth"/>
 
 </manifest>
