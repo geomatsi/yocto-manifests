@@ -3,25 +3,31 @@ Manifest for pcDuino basic Yocto distro based on upstream kernel and u-boot
 
 ## Install repo tool
 
+```bash
 $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 $ chmod a+x ~/bin/repo
+```
 
 ## Fetch yocto layers
 
+```bash
 $ mkdir -p /home/builder/project/source  
 $ mkdir -p /home/builder/project/build  
 $ cd /home/builder/project/source  
 $ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m sunxi-krogoth.xml  
 $ repo sync -c  
+```
 
 ## Prepare yocto build environment
 
+```bash
 $ cd poky  
 $ source oe-init-build-env /home/builder/project/build  
+```
 
 ## Add the following layers to bblayers.conf:
 
-```
+```asciidoc
 ...
 
 BBLAYERS ?= " \
@@ -40,39 +46,47 @@ BBLAYERS ?= " \
 
 Replace default machine definition in local.conf:
 
-```
+```asciidoc
 MACHINE = "pcduino"
 ```
 
 ## Building images
 
+```bash
 $ bitbake core-image-minimal  
 $ bitbake core-image-base  
+```
 
 # pcDuino legacy (Fido) images
 Manifest for pcDuino basic Yocto distro based on legacy linux-sunxi-v3.4 kernel and legacy u-boot
 
 ## Install repo tool
 
+```bash
 $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 $ chmod a+x ~/bin/repo
+```
 
 ## Fetch yocto layers
 
+```bash
 $ mkdir -p /home/builder/project/source  
 $ mkdir -p /home/builder/project/build  
 $ cd /home/builder/project/source  
 $ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m sunxi-legacy-fido.xml  
 $ repo sync -c  
+```
 
 ## Prepare yocto build environment
 
+```bash
 $ cd poky  
 $ source oe-init-build-env /home/builder/project/build  
+```
 
 ## Add the following layers to bblayers.conf:
 
-```
+```asciidoc
 ...
 
 BBLAYERS ?= " \
@@ -91,39 +105,47 @@ BBLAYERS ?= " \
 
 1. Replace default machine definition in local.conf:
 
-```
+```asciidoc
 MACHINE = "pcduino-lite-wifi"
 ```
 
 ## Building the image
 
+```bash
 $ bitbake core-image-minimal  
 $ bitbake core-image-base  
+```
 
 # BeagleBone (Fido)
 Manifest for BeagleBone IoT Yocto distro
 
 ## Install repo tool
 
+```bash
 $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 $ chmod a+x ~/bin/repo
+```
 
 ## Fetch yocto layers
 
+```bash
 $ mkdir -p /home/builder/project/source  
 $ mkdir -p /home/builder/project/build  
 $ cd /home/builder/project/source  
 $ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m beagle-fido.xml  
 $ repo sync -c  
+```
 
 ## Prepare yocto build environment
 
+```bash
 $ cd poky  
 $ source oe-init-build-env /home/builder/project/build  
+```
 
 ## Add meta-sunxi layer to the build environment
 
-```
+```asciidoc
 --- a/conf/bblayers.conf
 +++ b/conf/bblayers.conf
 @@ -9,6 +9,7 @@ BBLAYERS ?= " \
@@ -142,39 +164,47 @@ BBLAYERS_NON_REMOVABLE ?= " \
 
 1. Replace default machine definition in local.conf:
 
-```
+```asciidoc
 MACHINE = "beaglebone"
 ```
 
 ## Building the image
 
+```bash
 $ bitbake core-image-base  
 $ bitbake iot-image-base  
+```
 
 # IoT upstream (Krogoth) images
 Manifest for pcDuino Yocto distro with IoT software based on upstream kernel and u-boot
 
 ## Install repo tool
 
+```bash
 $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 $ chmod a+x ~/bin/repo
+```
 
 ## Fetch yocto layers
 
+```bash
 $ mkdir -p /home/builder/project/source  
 $ mkdir -p /home/builder/project/build  
 $ cd /home/builder/project/source  
 $ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m iot-sunxi-krogoth.xml  
 $ repo sync -c  
+```
 
 ## Prepare yocto build environment
 
+```bash
 $ cd poky  
 $ source oe-init-build-env /home/builder/project/build  
+```
 
 ## Add the following layers to bblayers.conf:
 
-```
+```asciidoc
 ...
 
 BBLAYERS ?= " \
@@ -196,12 +226,13 @@ BBLAYERS ?= " \
 
 1. Replace default machine definition in local.conf:
 
-```
+```asciidoc
 MACHINE = "pcduino"
 ```
 
 ## Building images
 
+```bash
 $ bitbake iot-image-base  
 $ bitbake iot-image-web  
-
+```
