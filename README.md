@@ -100,68 +100,6 @@ $ bitbake iot-image-base
 $ bitbake iot-image-web
 ```
 
-# Upstream images: Yocto v2.1 Krogoth
-Krogoth upstream images are based on upstream kernel v4.4.6 and u-boot v2016.03.
-
-## Fetch Yocto layers
-
-```bash
-$ mkdir -p /home/builder/project/source
-$ mkdir -p /home/builder/project/build
-$ cd /home/builder/project/source
-$ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m iot-sunxi-krogoth.xml
-$ repo sync -c
-```
-
-## Prepare Yocto build environment
-
-```bash
-$ cd poky
-$ source oe-init-build-env /home/builder/project/build
-```
-
-Yocto configuration files will be stored in /home/builder/project/build/conf
-directory.
-
-## Edit build settings
-
-### bblayers.conf
-Add the following layers to bblayers.conf:
-
-```asciidoc
-...
-
-BBLAYERS ?= " \
- /home/builder/project/source/poky/meta \
- /home/builder/project/source/poky/meta-poky \
- /home/builder/project/source/meta-openembedded/meta-oe \
- /home/builder/project/source/meta-openembedded/meta-python \
- /home/builder/project/source/meta-openembedded/meta-networking \
- /home/builder/project/source/meta-nodejs \
- /home/builder/project/source/meta-nodejs-contrib \
- /home/builder/project/source/meta-sunxi \
- /home/builder/project/source/meta-iot-simple \
- "
-...
-
-```
-
-### local.conf
-Replace default machine definition in local.conf:
-
-```asciidoc
-MACHINE = "pcduino"
-```
-
-## Building images
-
-```bash
-$ bitbake core-image-minimal
-$ bitbake core-image-base
-$ bitbake iot-image-base
-$ bitbake iot-image-web
-```
-
 # Legacy images: Allwinner BSP and Yocto v1.8 Fido
 Legacy images are based on Allwinner BSP which includes patched kernel v3.4
 kernel and u-boot v2014.04.
