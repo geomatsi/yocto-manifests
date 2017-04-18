@@ -2,7 +2,6 @@
 <manifest>
 
   <remote  name="yocto" fetch="git://git.yoctoproject.org"/>
-  <remote  name="sunxi" fetch="https://github.com/linux-sunxi"/>
   <remote  name="geomatsi" fetch="https://github.com/geomatsi"/>
   <remote  name="openembedded" fetch="https://github.com/openembedded"/>
 

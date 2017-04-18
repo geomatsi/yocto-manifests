@@ -2,14 +2,12 @@
 <manifest>
 
   <remote  name="yocto" fetch="git://git.yoctoproject.org"/>
-  <remote  name="beagle" fetch="https://github.com/beagleboard"/>
   <remote  name="geomatsi" fetch="https://github.com/geomatsi"/>
   <remote  name="openembedded" fetch="https://github.com/openembedded"/>
 
   <default remote="geomatsi" revision="master"/>
 
   <project path="poky" name="poky" remote="yocto" revision="fido"/>
-  <project path="meta-iot-simple" name="meta-iot-simple" remote="geomatsi" revision="master"/>
   <project path="meta-beagle" name="meta-beagle" remote="geomatsi" revision="master"/>
   <project path="meta-openembedded" name="meta-openembedded" remote="openembedded" revision="fido"/>
 
