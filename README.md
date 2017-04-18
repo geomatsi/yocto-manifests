@@ -115,7 +115,7 @@ $ cd /home/builder/project/source
 $ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m sunxi-legacy-fido.xml
 
 # BeagleBone board
-$ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m beagle-fido.xml  
+$ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m beagle-legacy-fido.xml  
 
 $ repo sync -c
 ```
