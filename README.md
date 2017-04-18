@@ -1,5 +1,8 @@
 # Preliminary setup
 
+## Node.js specific dependencies
+The following package should be installed in the build host: g++-multilib
+
 ## repo tool
 Install repo tool
 ```bash
