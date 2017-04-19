@@ -11,7 +11,7 @@ $ chmod a+x ~/bin/repo
 ```
 
 # Upstream images: Yocto v2.2 Morty
-Morty upstream images are based on upstream kernel v4.9 and u-boot v2016.11.
+Yocto Morty images are based on upstream kernel v4.9 and u-boot v2016.11.
 
 ## Fetch Yocto layers
 
@@ -19,7 +19,7 @@ Morty upstream images are based on upstream kernel v4.9 and u-boot v2016.11.
 $ mkdir -p /home/builder/project/source
 $ mkdir -p /home/builder/project/build
 $ cd /home/builder/project/source
-$ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m iot-sunxi-morty.xml
+$ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m iot-sunxi-morty.xml
 $ repo sync -c
 ```
 
@@ -115,10 +115,10 @@ $ mkdir -p /home/builder/project/build
 $ cd /home/builder/project/source
 
 # sunxi boards
-$ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m sunxi-legacy-fido.xml
+$ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m sunxi-legacy-fido.xml
 
 # BeagleBone board
-$ repo init -u git@github.com:geomatsi/yocto-manifests.git -b master -m beagle-legacy-fido.xml  
+$ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m beagle-legacy-fido.xml  
 
 $ repo sync -c
 ```
