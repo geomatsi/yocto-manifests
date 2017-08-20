@@ -1,7 +1,15 @@
 # Preliminary setup
 
 ## Node.js specific dependencies
-The following package should be installed in the build host: g++-multilib
+See details at https://github.com/imyller/meta-nodejs for nodejs prerequisites.
+In brief, the following packages should be installed in order to build
+images for 32-bit ARM on x86_64 Ubuntu or Debian host:
+
+```bash
+$ sudo dpkg --add-architecture i386
+$ sudo apt-get update
+$ sudo apt-get install g++-multilib libssl-dev:i386 libcrypto++-dev:i386 zlib1g-dev:i386
+```
 
 ## repo tool
 Install repo tool
