@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="yocto" fetch="git://git.yoctoproject.org"/>
+  <remote  name="sunxi" fetch="https://github.com/linux-sunxi"/>
+  <remote  name="nodejs" fetch="https://github.com/imyller"/>
+  <remote  name="geomatsi" fetch="https://github.com/geomatsi"/>
+  <remote  name="openembedded" fetch="https://github.com/openembedded"/>
+
+  <default remote="geomatsi" revision="master"/>
+
+  <project path="poky" name="poky" remote="yocto" revision="morty"/>
+  <project path="meta-openembedded" name="meta-openembedded" remote="openembedded" revision="morty"/>
+  <project path="meta-nodejs" name="meta-nodejs" remote="nodejs" revision="morty"/>
+  <project path="meta-nodejs-contrib" name="meta-nodejs-contrib" remote="nodejs" revision="morty"/>
+  <project path="meta-sunxi" name="meta-sunxi" remote="sunxi" revision="fcda1c7baa71335ce0feab96880e1349d981b992"/>
+  <project path="meta-iot-simple" name="meta-iot-simple" remote="geomatsi" revision="8f8290a47f7399cfcd1c20be485a0151dae6729b"/>
+
+</manifest>
