@@ -1,5 +1,12 @@
 # Preliminary setup
 
+## repo tool
+Install repo tool
+```bash
+$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+$ chmod a+x ~/bin/repo
+```
+
 ## Node.js specific dependencies
 See details at https://github.com/imyller/meta-nodejs for nodejs prerequisites.
 In brief, the following packages should be installed in order to build
@@ -11,27 +18,24 @@ $ sudo apt-get update
 $ sudo apt-get install g++-multilib libssl-dev:i386 libcrypto++-dev:i386 zlib1g-dev:i386
 ```
 
-## repo tool
-Install repo tool
-```bash
-$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-$ chmod a+x ~/bin/repo
-```
+# Octoprint images based on meta-maker
 
-# Upstream images: Yocto v2.2 Morty
-Yocto Morty images are based on upstream kernel v4.9 and u-boot v2016.11.
+## Upstream Octoprint images: Yocto v2.3 Pyro and Yocto v2.4 Rocko
+Yocto Rocko images are based on Octoprint 1.4.x development branch.
+Yocto Pyro images are based on Octoprint 1.3.x stable branch.
 
-## Fetch Yocto layers
+### Fetch Yocto layers
 
+Use either octoprint-sunxi-pyro.xml or octoprint-sunxi-rocko.xml manifest:
 ```bash
 $ mkdir -p /home/builder/project/source
 $ mkdir -p /home/builder/project/build
 $ cd /home/builder/project/source
-$ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m iot-sunxi-morty.xml
+$ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m octoprint-sunxi-pyro.xml
 $ repo sync -c
 ```
 
-## Prepare Yocto build environment
+### Prepare Yocto build environment
 
 ```bash
 $ cd poky
@@ -41,9 +45,62 @@ $ source oe-init-build-env /home/builder/project/build
 Yocto configuration files will be stored in /home/builder/project/build/conf
 directory.
 
-## Edit build settings
+### Edit build settings
 
-### bblayers.conf
+#### bblayers.conf
+Add the following layers to bblayers.conf:
+
+```asciidoc
+...
+
+BBLAYERS ?= " \
+ /home/builder/project/source/poky/meta \
+ /home/builder/project/source/poky/meta-poky \
+ /home/builder/project/source/openembedded-core/meta \
+ /home/builder/project/source/meta-openembedded/meta-oe \
+ /home/builder/project/source/meta-openembedded/meta-perl \
+ /home/builder/project/source/meta-openembedded/meta-python \
+ /home/builder/project/source/meta-openembedded/meta-webserver \
+ /home/builder/project/source/meta-openembedded/meta-networking \
+ /home/builder/project/source/meta-sunxi \
+ /home/builder/project/source/meta-sunxi-contrib \
+ /home/builder/project/source/meta-maker \
+ "
+...
+
+```
+
+#### local.conf
+TODO
+
+# IoT images: MQTT/Node/nRF24
+
+## Upstream IoT images: Yocto v2.2 Morty
+Yocto Morty images are based on upstream kernel v4.9 and u-boot v2016.11.
+
+### Fetch Yocto layers
+
+```bash
+$ mkdir -p /home/builder/project/source
+$ mkdir -p /home/builder/project/build
+$ cd /home/builder/project/source
+$ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m iot-sunxi-morty.xml
+$ repo sync -c
+```
+
+### Prepare Yocto build environment
+
+```bash
+$ cd poky
+$ source oe-init-build-env /home/builder/project/build
+```
+
+Yocto configuration files will be stored in /home/builder/project/build/conf
+directory.
+
+### Edit build settings
+
+#### bblayers.conf
 Add the following layers to bblayers.conf:
 
 ```asciidoc
@@ -64,7 +121,7 @@ BBLAYERS ?= " \
 
 ```
 
-### local.conf
+#### local.conf
 
 1. Machine definition
 
@@ -102,7 +159,7 @@ BBLAYERS ?= " \
    BB_NUMBER_THREADS = "2"
    ```
 
-## Building images
+### Building images
 
 ```bash
 $ bitbake core-image-minimal
@@ -111,11 +168,11 @@ $ bitbake iot-image-base
 $ bitbake iot-image-web
 ```
 
-# Legacy images: Allwinner BSP and Yocto v1.8 Fido
+## Legacy IoT images: Allwinner BSP and Yocto v1.8 Fido
 Legacy images are based on Allwinner BSP which includes patched kernel v3.4
 kernel and u-boot v2014.04.
 
-## Fetch yocto layers
+### Fetch yocto layers
 
 ```bash
 $ mkdir -p /home/builder/project/source
@@ -131,16 +188,16 @@ $ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m beag
 $ repo sync -c
 ```
 
-## Prepare yocto build environment
+### Prepare yocto build environment
 
 ```bash
 $ cd poky
 $ source oe-init-build-env /home/builder/project/build
 ```
 
-## Edit build settings
+### Edit build settings
 
-### bblayers.conf
+#### bblayers.conf
 For sunxi boards add the following layers to bblayers.conf:
 
 ```asciidoc
@@ -174,7 +231,7 @@ BBLAYERS ?= " \
 ...
 ```
 
-### local.conf
+#### local.conf
 
 Replace default machine definition in local.conf.
 
@@ -188,7 +245,7 @@ For BeagleBone board:
 MACHINE = "beaglebone"
 ```
 
-## Building the image
+### Building the image
 
 ```bash
 $ bitbake core-image-minimal
