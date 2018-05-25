@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="yocto" fetch="git://git.yoctoproject.org"/>
+  <remote  name="sunxi" fetch="https://github.com/linux-sunxi"/>
+  <remote  name="geomatsi" fetch="https://github.com/geomatsi"/>
+  <remote  name="openembedded" fetch="https://github.com/openembedded"/>
+
+  <default remote="geomatsi" revision="master"/>
+
+  <project path="poky" name="poky" remote="yocto" revision="rocko"/>
+  <project path="openembedded-core" name="openembedded-core" remote="openembedded" revision="rocko"/>
+  <project path="meta-openembedded" name="meta-openembedded" remote="openembedded" revision="rocko"/>
+  <project path="meta-maker" name="meta-maker" remote="yocto" revision="rocko"/>
+  <project path="meta-sunxi" name="meta-sunxi" remote="sunxi" revision="master"/>
+  <project path="meta-sunxi-contrib" name="meta-sunxi-contrib" remote="geomatsi" revision="master"/>
+
+</manifest>
