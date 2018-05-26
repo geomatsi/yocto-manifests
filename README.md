@@ -65,14 +65,64 @@ BBLAYERS ?= " \
  /home/builder/project/source/meta-sunxi \
  /home/builder/project/source/meta-sunxi-contrib \
  /home/builder/project/source/meta-maker \
+ /home/builder/project/source/meta-octoprint-images \
  "
 ...
 
 ```
 
 #### local.conf
-TODO
 
+1. Machine definition
+   For Orange-Pi PC Plus board replace default machine definition with the following:
+
+   ```asciidoc
+   MACHINE = "orange-pi-pc-plus"
+   ```
+
+   For Orange-Pi Zero board replace default machine definition with the following:
+
+   ```asciidoc
+   MACHINE = "orange-pi-zero"
+   ```
+
+2. Package manager
+
+   Octoprint has quite a few dependencies including various python packages.
+   To simplify troubleshooting it makes sense to use rpm or deb package managers
+   which provide more useful error reporting on do_rootfs failures.
+
+   ```asciidoc
+   PACKAGE_CLASSES = "package_rpm"
+   ```
+
+3. Licenses
+
+   Enable non-free licenses for FFmpeg and Cura adding the following
+   line at the bottom of local.conf:
+
+   ```asciidoc
+   LICENSE_FLAGS_WHITELIST = "commercial"
+   ```
+
+
+4. WiFi support on Orange Pi boards
+
+   Install WiFi kernel modules to image adding the following lines
+   at the bottom of local.conf:
+
+   For Orange-Pi PC Plus board:
+   
+   ```asciidoc
+   IMAGE_INSTALL_append = " rtl8189fs-mod "
+   ```
+
+   For Orange-Pi Zero board:
+   
+   ```asciidoc
+   IMAGE_INSTALL_append = " xradio-mod "
+   ```
+ 
 # IoT images: MQTT/Node/nRF24
 
 ## Upstream IoT images: Yocto v2.2 Morty

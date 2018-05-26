@@ -14,5 +14,6 @@
   <project path="meta-maker" name="meta-maker" remote="yocto" revision="pyro"/>
   <project path="meta-sunxi" name="meta-sunxi" remote="sunxi" revision="master"/>
   <project path="meta-sunxi-contrib" name="meta-sunxi-contrib" remote="geomatsi" revision="master"/>
+  <project path="meta-octoprint-images" name="meta-octoprint-images" remote="geomatsi" revision="pyro"/>
 
 </manifest>
