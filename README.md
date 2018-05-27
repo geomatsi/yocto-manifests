@@ -105,8 +105,19 @@ BBLAYERS ?= " \
    LICENSE_FLAGS_WHITELIST = "commercial"
    ```
 
+4. Octoprint python dependencies
 
-4. WiFi support on Orange Pi boards
+   Layer meta-maker enables custom providers for several python packages.
+   Those custom providers are needed to satisfy Octoprint requirements
+   for its python dependencies. To help Yocto to choose the right ones
+   add the following lines at the bottom of local.conf:
+
+   ```asciidoc
+   PREFERRED_RPROVIDER_python-werkzeug = "python-werkzeug11"
+   PREFERRED_RPROVIDER_python-jinja2 = "python-jinja2.8"
+   ```
+
+5. WiFi support on Orange Pi boards
 
    Install WiFi kernel modules to image adding the following lines
    at the bottom of local.conf:
