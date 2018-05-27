@@ -20,18 +20,18 @@ $ sudo apt-get install g++-multilib libssl-dev:i386 libcrypto++-dev:i386 zlib1g-
 
 # Octoprint images based on meta-maker
 
-## Upstream Octoprint images: Yocto v2.3 Pyro and Yocto v2.4 Rocko
+## Upstream Octoprint images: Yocto v2.4 Rocko
 Yocto Rocko images are based on Octoprint 1.4.x development branch.
 Yocto Pyro images are based on Octoprint 1.3.x stable branch.
 
 ### Fetch Yocto layers
 
-Use either octoprint-sunxi-pyro.xml or octoprint-sunxi-rocko.xml manifest:
+Use octoprint-sunxi-rocko.xml manifest:
 ```bash
 $ mkdir -p /home/builder/project/source
 $ mkdir -p /home/builder/project/build
 $ cd /home/builder/project/source
-$ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m octoprint-sunxi-pyro.xml
+$ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m octoprint-sunxi-rocko.xml
 $ repo sync -c
 ```
 
@@ -136,8 +136,10 @@ BBLAYERS ?= " \
  
 # IoT images: MQTT/Node/nRF24
 
-## Upstream IoT images: Yocto v2.2 Morty
+## Upstream IoT images: Yocto v2.2 Morty and v2.5 Sumo
 Yocto Morty images are based on upstream kernel v4.9 and u-boot v2016.11.
+Note that nodejs is built using Morty branch of meta-nodejs layer
+in both Morty and Sumo images.
 
 ### Fetch Yocto layers
 
@@ -145,7 +147,7 @@ Yocto Morty images are based on upstream kernel v4.9 and u-boot v2016.11.
 $ mkdir -p /home/builder/project/source
 $ mkdir -p /home/builder/project/build
 $ cd /home/builder/project/source
-$ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m iot-sunxi-morty.xml
+$ repo init -u https://github.com/geomatsi/yocto-manifests.git -b master -m iot-sunxi-sumo.xml
 $ repo sync -c
 ```
 
@@ -176,7 +178,9 @@ BBLAYERS ?= " \
  /home/builder/project/source/meta-nodejs \
  /home/builder/project/source/meta-nodejs-contrib \
  /home/builder/project/source/meta-sunxi \
+ /home/builder/project/source/meta-sunxi-contrib \
  /home/builder/project/source/meta-iot-simple \
+ /home/builder/project/source/meta-hamster \
  "
 ...
 

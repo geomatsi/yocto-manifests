@@ -14,6 +14,8 @@
   <project path="meta-nodejs" name="meta-nodejs" remote="nodejs" revision="morty"/>
   <project path="meta-nodejs-contrib" name="meta-nodejs-contrib" remote="nodejs" revision="morty"/>
   <project path="meta-sunxi" name="meta-sunxi" remote="sunxi" revision="master"/>
+  <project path="meta-sunxi-contrib" name="meta-sunxi-contrib" remote="geomatsi" revision="master"/>
   <project path="meta-iot-simple" name="meta-iot-simple" remote="geomatsi" revision="master"/>
+  <project path="meta-hamster" name="meta-hamster" remote="geomatsi" revision="master"/>
 
 </manifest>
